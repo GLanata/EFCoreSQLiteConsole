@@ -20,9 +20,13 @@ namespace EFCoreSQLiteConsole.Context
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            var connectionStringBuilder = new SqliteConnectionStringBuilder() { DataSource = "beer.db" }.ToString();
-            var connection = new SqliteConnection(connectionStringBuilder);
+            string connectionStringBuilder = new SqliteConnectionStringBuilder()
+            {
+                DataSource = "beer.db"
+            }
+            .ToString();
 
+            var connection = new SqliteConnection(connectionStringBuilder);
             optionsBuilder.UseSqlite(connection);
         }
     }
